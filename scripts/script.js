@@ -1,4 +1,10 @@
 document.getElementById("inputPhn").addEventListener("input", () => {
+    if (document.getElementById("inputPhn").value.toString().charAt(0) === "0") {
+        document.getElementById("inputPhn").value = document
+            .getElementById("inputPhn")
+            .value.substring(1)
+            .toString();
+    }
     document.getElementById("inputPhn").value = document
         .getElementById("inputPhn")
         .value.replace(/[^0-9]/gi, "")
