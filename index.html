@@ -14,9 +14,33 @@
     </head>
     <body>
         <div class="container my-2">
+            <div class="jumbotron py-4">
+                <h1 class="display-4 font-weight-normal title">Direct WhatsApp</h1>
+                <p class="lead">No more efforts to save temporary contacts.</p>
+                <hr class="my-4" />
+                <h3 class="font-weight-normal">
+                    <img src="images/info-24.svg" alt="Info Icon" class="pb-1" /> Key Information
+                </h3>
+                <ul class="ml-md-2 ml-n2">
+                    <li>I don't reserves any rights for WhatsApp and their application/website.</li>
+                    <li>
+                        Click
+                        <a href="https://github.com/r4reetik/direct-whatsapp" target="_blank">
+                            here
+                        </a>
+                        to learn more.
+                    </li>
+                </ul>
+            </div>
+
             <div class="form-group">
                 <label for="inputMsg" class="head">Message</label>
-                <textarea class="form-control" id="inputMsg" rows="5"></textarea>
+                <textarea
+                    class="form-control"
+                    id="inputMsg"
+                    rows="5"
+                    placeholder="Hello! Pikachu."
+                ></textarea>
             </div>
             <div class="form-group">
                 <label for="inputPhn" class="head">WhatsApp Number</label>
@@ -43,7 +67,66 @@
                     />
                 </div>
             </div>
-            <button id="btnSend" class="btn btn-success">Send Message</button>
+
+            <button type="button" id="btnSend" class="btn btn-success">Send Message</button>
+            <button
+                type="button"
+                id="btnSettings"
+                class="btn btn-outline-dark float-right"
+                data-toggle="modal"
+                data-target="#modalSettings"
+            >
+                <img src="images/settings.svg" alt="Settings" width="22px" height="22px" />
+            </button>
+            <div
+                class="modal fade"
+                id="modalSettings"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="modalSettingsTitle"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <img
+                                    src="images/settings.svg"
+                                    alt="Settings"
+                                    width="22px"
+                                    height="22px"
+                                    class="mt-n1"
+                                />
+                                Settings
+                            </h5>
+                            <button
+                                type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                            >
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Coming Soon!</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-primary" disabled>
+                                Save changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="card mt-2">
+                <div class="card-header head">Recent Recipient</div>
+                <div class="card-body">Coming Soon!</div>
+            </div>
         </div>
 
         <script
