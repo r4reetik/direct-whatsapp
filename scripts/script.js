@@ -29,6 +29,14 @@ document.getElementById("btnSend").addEventListener("click", (e) => {
             updateRecentList();
         }
         window.open(url);
+        if (document.getElementById("toggleClearBoth").checked) {
+            document.getElementById("inputMsg").value = "";
+            document.getElementById("inputPhn").value = "";
+        } else if (document.getElementById("toggleClearMsg").checked) {
+            document.getElementById("inputMsg").value = "";
+        } else if (document.getElementById("toggleClearNum").checked) {
+            document.getElementById("inputPhn").value = "";
+        }
     } else {
         e.preventDefault();
     }
@@ -36,7 +44,7 @@ document.getElementById("btnSend").addEventListener("click", (e) => {
 
 document.getElementById("btnClearStorage").addEventListener("click", () => {
     if (localStorage.getItem("storedRepNums")) {
-        localStorage.clear();
+        localStorage.removeItem("storedRepNums");
         document.getElementById("recentList").innerHTML = `Recents data cleared successfully!`;
         document.getElementById("recentList").classList.remove("m-n3");
     } else {
@@ -74,3 +82,80 @@ const updateRecentList = () => {
     }
 };
 updateRecentList();
+
+const loadSavedSettings = () => {
+    if (localStorage.getItem("toggleClearBothS") === "true") {
+        document.getElementById("toggleClearBoth").checked = true;
+    } else {
+        document.getElementById("toggleClearBoth").checked = false;
+    }
+    if (localStorage.getItem("toggleClearMsgS") === "true") {
+        document.getElementById("toggleClearMsg").checked = true;
+    } else {
+        document.getElementById("toggleClearMsg").checked = false;
+    }
+    if (localStorage.getItem("toggleClearNumS") === "true") {
+        document.getElementById("toggleClearNum").checked = true;
+    } else {
+        document.getElementById("toggleClearNum").checked = false;
+    }
+};
+
+document.getElementById("btnSettings").addEventListener("click", loadSavedSettings);
+
+document.getElementById("toggleClearBoth").addEventListener("click", () => {
+    if (document.getElementById("toggleClearBoth").checked) {
+        document.getElementById("toggleClearMsg").checked = true;
+        document.getElementById("toggleClearNum").checked = true;
+    } else {
+        document.getElementById("toggleClearMsg").checked = false;
+        document.getElementById("toggleClearNum").checked = false;
+    }
+});
+
+document.getElementById("toggleClearMsg").addEventListener("click", () => {
+    if (
+        document.getElementById("toggleClearMsg").checked &&
+        document.getElementById("toggleClearNum").checked
+    ) {
+        document.getElementById("toggleClearBoth").checked = true;
+    } else {
+        document.getElementById("toggleClearBoth").checked = false;
+    }
+});
+
+document.getElementById("toggleClearNum").addEventListener("click", () => {
+    if (
+        document.getElementById("toggleClearNum").checked &&
+        document.getElementById("toggleClearMsg").checked
+    ) {
+        document.getElementById("toggleClearBoth").checked = true;
+    } else {
+        document.getElementById("toggleClearBoth").checked = false;
+    }
+});
+
+document.getElementById("btnSaveSettings").addEventListener("click", () => {
+    if (document.getElementById("toggleClearBoth").checked) {
+        localStorage.setItem("toggleClearBothS", "true");
+    } else {
+        localStorage.setItem("toggleClearBothS", "false");
+    }
+    if (document.getElementById("toggleClearMsg").checked) {
+        localStorage.setItem("toggleClearMsgS", "true");
+    } else {
+        localStorage.setItem("toggleClearMsgS", "false");
+    }
+    if (document.getElementById("toggleClearNum").checked) {
+        localStorage.setItem("toggleClearNumS", "true");
+    } else {
+        localStorage.setItem("toggleClearNumS", "false");
+    }
+});
+
+document.getElementById("btnReset").addEventListener("click", () => {
+    document.getElementById("inputMsg").value = "";
+    document.getElementById("inputPhn").value = "";
+    localStorage.clear();
+    updateRecentList();
+});

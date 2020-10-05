@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -108,12 +109,63 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">Coming Soon!</div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-9">Dark Theme (Coming Soon!)</div>
+                                <!-- <div class="col-3 pl-5">
+                                    <label class="switch">
+                                        <input type="checkbox" style=/>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div> -->
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-9">Clear all field on Send Message</div>
+                                <div class="col-3 pl-5">
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggleClearBoth" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9 pl-5">Clear Message only</div>
+                                <div class="col-3 pl-5">
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggleClearMsg" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9 pl-5">Clear Number only</div>
+                                <div class="col-3 pl-5">
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggleClearNum" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                data-dismiss="modal"
+                                id="btnReset"
+                            >
+                                Clear Data & Reset
+                            </button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-primary" disabled>
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-dismiss="modal"
+                                id="btnSaveSettings"
+                            >
                                 Save changes
                             </button>
                         </div>
