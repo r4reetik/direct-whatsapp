@@ -16,7 +16,8 @@ document.getElementById("btnSend").addEventListener("click", (e) => {
     if (document.getElementById("inputPhn").value.length === 10) {
         let url = "https://wa.me/91" + document.getElementById("inputPhn").value.toString();
         if (document.getElementById("inputMsg").value != "") {
-            url += "?text=" + document.getElementById("inputMsg").value.toString();
+            url +=
+                "?text=" + encodeURIComponent(document.getElementById("inputMsg").value.toString());
         }
         if (localStorage.getItem("storedRepNums")) {
             let updatedRepNums = JSON.parse(localStorage.getItem("storedRepNums"));
